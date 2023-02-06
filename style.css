@@ -1,0 +1,44 @@
+body {
+    background-color: aliceblue;
+    margin: 0;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.menu {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    border-bottom: 1px solid gainsboro;
+}
+
+.menu div {
+    padding: 0 10px 0 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.menu div:hover {
+    background-color: rgb(212, 232, 250);
+}
+
+.main-body {
+    display: flex;
+    justify-content: center;
+}
+
+.main-body div {
+    width: max-content;
+    margin-top: 20px;
+}
