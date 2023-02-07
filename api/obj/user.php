@@ -4,7 +4,6 @@
         private $conn;
         private $table_name = "users";
 
-        // свойства
         public $id;
         public $name;
         public $mail;
@@ -18,7 +17,6 @@
 
         // метод создания пользователей
         function createUser() {
-            // запрос для вставки (создания) записей
             $query = "INSERT INTO " . $this->table_name . " SET name=:name, mail=:mail, phone=:phone, password=:password";
             $req = $this->conn->prepare($query);
 
@@ -27,7 +25,6 @@
             $req->bindParam(":phone", $this->phone);
             $req->bindParam(":password", $this->password);
 
-            // выполняем запрос
             if ($req->execute()) {
                 return true;
             }
@@ -41,18 +38,15 @@
             $req->bindParam(1, $this->id);
 
             $req->execute();
-
-            // получаем извлеченную строку
             $row = $req->fetch(PDO::FETCH_ASSOC);
 
-            // значения свойств объекта
             $this->id = $row["id"];
             $this->name = $row["name"];
             $this->mail = $row["mail"];
             $this->phone = $row["phone"];
         }
 
-        // метод обновления товара
+        // метод обновления данных пользователя
         function updateUser() {
             $sql = "UPDATE " . $this->table_name . " SET name = ?, mail = ?, phone = ? WHERE id = ?";
 
@@ -63,20 +57,18 @@
             $req->bindParam(3, $this->phone);
             $req->bindParam(4, $this->id);
 
-            // выполняем запрос
             if ($req->execute()) {
                 return true;
             }
             return false;
         }
 
-        // метод удаления товара
+        // метод удаления пользователя
         function delete() {
             $sql = "DELETE FROM " . $this->table_name . " WHERE id = ?";
             $req = $this->conn->prepare($sql);
             $req->bindParam(1, $this->id);
 
-            // выполняем запрос
             if ($req->execute()) {
                 return true;
             }
@@ -88,6 +80,7 @@
             $sql = "SELECT mail, password FROM " . $this->table_name . " WHERE mail = ?";
             $req = $this->conn->prepare($sql);
             $req->bindParam(1, $this->mail);
+            
             $req->execute();
             $row = $req->fetch(PDO::FETCH_ASSOC);
 
