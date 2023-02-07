@@ -13,13 +13,11 @@
     $database = new Database();
     $db = $database->getConnection();
     $data = json_decode(file_get_contents("php://input"));
-    // подготовка объекта
+
     $user = new User($db);
 
-    // установим свойство ID записи для чтения
     $user->id = isset($_GET["id"]) ? $_GET["id"] : die();
 
-    // получим данные пользователя
     $user->search();
 
     if ($user->name != null) {
@@ -38,3 +36,5 @@
         http_response_code(404);
         echo json_encode(array("message" => "Такого пользователя нет в базе"), JSON_UNESCAPED_UNICODE);
     }
+
+?>
