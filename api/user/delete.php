@@ -11,7 +11,6 @@
     $database = new Database();
     $db = $database->getConnection();
 
-    // подготовка объекта
     $user = new User($db);
 
     $data = json_decode(file_get_contents("php://input"));
@@ -25,3 +24,4 @@
         http_response_code(503);
         echo json_encode(array("message" => "Не удалось удалить пользователя"));
     }
+?>
