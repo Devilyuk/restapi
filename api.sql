@@ -40,8 +40,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `mail`, `phone`, `password`) VALUES
-(3, 'dima', 'dima@mail.ru', '79994514329', 'e361c0ff344ebbec06ef4628d96933c9'),
-(5, 'Vadim228', 'vadim@mail.ru', '7999454329', '$2y$10$RU5PZq3CBLMdKALwTGd8f.YKCRUaV/8zwZ9bbD50qB3rSrUgmmTEa');
+(5, 'Vadim', 'vadim@mail.ru', '7999454329', '$2y$10$RU5PZq3CBLMdKALwTGd8f.YKCRUaV/8zwZ9bbD50qB3rSrUgmmTEa');
 
 --
 -- Индексы сохранённых таблиц
