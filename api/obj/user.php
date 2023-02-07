@@ -77,7 +77,7 @@
 
         // метод авторизации
         function auth() {
-            $sql = "SELECT mail, password FROM " . $this->table_name . " WHERE mail = ?";
+            $sql = "SELECT name, mail, password FROM " . $this->table_name . " WHERE mail = ?";
             $req = $this->conn->prepare($sql);
             $req->bindParam(1, $this->mail);
             
@@ -87,7 +87,7 @@
             if ($row['mail'] == $this->mail) {
                 if (password_verify($this->password, $row['password'])) {
                     http_response_code(200);
-                    echo json_encode(array("message" => "Вы успешно авторизировались!</p>"), JSON_UNESCAPED_UNICODE);
+                    echo json_encode(array("message" => "Добрый день, " . $row['name'] . "! Вы успешно авторизировались!</p>"), JSON_UNESCAPED_UNICODE);
                 } else {
                     http_response_code(200);
                     echo json_encode(array("message" => "Пароль не подходит!"), JSON_UNESCAPED_UNICODE);
