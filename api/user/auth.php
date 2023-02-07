@@ -23,15 +23,6 @@
     $user->mail = $data->mail;
     $user->password = $data->password;
 
-    //вызов метода
     $user->auth();
-
-    // if () {
-    //     http_response_code(200);
-    //     echo json_encode(array("message" => "Данные успешно обновлены"), JSON_UNESCAPED_UNICODE);
-    // } else {
-    //     http_response_code(503);
-    //     echo json_encode(array("message" => "Невозможно обновить данные"), JSON_UNESCAPED_UNICODE);
-    // }
 
 ?>
